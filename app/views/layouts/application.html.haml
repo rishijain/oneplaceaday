@@ -6,4 +6,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    .container-fluid
+      .row
+        .col-md-6.col-md-offset-3
+          %h1 One place a day.
+      .row
+        .col-md-1
+        .col-md-10.image-container
+          =image_tag 'http://tonaldemo.files.wordpress.com/2011/07/tumblr_mr80mqgzc31st5lhmo1_1280.jpg?w=1280&h=850'
+        .col-md-1
