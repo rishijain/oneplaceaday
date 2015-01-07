@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     Post.create(permit_params)
   end
 
+  def index
+    @posts = Post.all.order('created_at DESC')
+  end
+
   private
 
   def permit_params
