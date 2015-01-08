@@ -42,4 +42,4 @@ gem 'haml-rails'
 
 gem 'carrierwave'
 gem 'cloudinary'
-
+gem 'devise'
