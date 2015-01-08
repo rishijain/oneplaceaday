@@ -1,36 +1,8 @@
-.row
-  .col-md-1
-  .col-md-10.image-container
-    =image_tag 'http://tonaldemo.files.wordpress.com/2011/07/tumblr_mr80mqgzc31st5lhmo1_1280.jpg?w=1280&h=850'
-    %br
-    %br
-    %p.title Green Pastures
-    %p.description
-      Lorem ipsum dolor sit amet, ut sagittis dui vel ultrices ullamcorper ullamcorper, integer suscipit, non nam donec scelerisque veniam consectetuer eu, ultricies dictum tempor pharetra, porttitor nostra. Proin nibh ut vitae sed. Varius eu, nulla id commodo laoreet est tellus natoque, ante posuere nostra ornare, metus litora sagittis. Luctus sollicitudin nulla congue libero scelerisque augue, aenean ullamcorper nisl adipiscing malesuada sunt, donec erat nec leo sem nisl dui. Praesent orci eu id, ipsum curabitur leo amet lobortis dui sit, risus sed nunc rhoncus et et, eu mauris lobortis velit etiam.
-    %p Visited on: April, 2011
-    %p Place: Pune, India 
-    %p Author: Rishi Jain 
-  .col-md-1
-%br
-.row
-  .col-md-1
-  .col-md-10.image-container
-    =image_tag 'http://tonaldemo.files.wordpress.com/2011/07/tumblr_mr80mqgzc31st5lhmo1_1280.jpg?w=1280&h=850'
-    %br
-    %br
-    %p.title Green Pastures
-    %p.description
-      Lorem ipsum dolor sit amet, ut sagittis dui vel ultrices ullamcorper ullamcorper, integer suscipit, non nam donec scelerisque veniam consectetuer eu, ultricies dictum tempor pharetra, porttitor nostra. Proin nibh ut vitae sed. Varius eu, nulla id commodo laoreet est tellus natoque, ante posuere nostra ornare, metus litora sagittis. Luctus sollicitudin nulla congue libero scelerisque augue, aenean ullamcorper nisl adipiscing malesuada sunt, donec erat nec leo sem nisl dui. Praesent orci eu id, ipsum curabitur leo amet lobortis dui sit, risus sed nunc rhoncus et et, eu mauris lobortis velit etiam.
-    %p Visited on: April, 2011
-    %p Place: Pune, India 
-    %p Author: Rishi Jain 
-  .col-md-1
-%br
 - @posts.each do |p|
   .row
     .col-md-1
     .col-md-10.image-container
-      =image_tag 'http://tonaldemo.files.wordpress.com/2011/07/tumblr_mr80mqgzc31st5lhmo1_1280.jpg?w=1280&h=850'
+      =image_tag p.photo.url 
       %br
       %br
       %p.title= p.title 
