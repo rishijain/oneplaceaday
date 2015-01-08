@@ -6,12 +6,12 @@
   = f.text_area :description, rows: 20, cols: 100
 .form-group
   %label Place
-  = f.text_field :place
+  = f.text_field :place, placeholder: 'ex: Pune'
 .form-group
   %label Country
-  = f.text_field :country
+  = f.text_field :country, placeholder: 'ex: India' 
 .form-group
   %label Visited On
-  = f.text_field :visited_on
+  = f.text_field :visited_on, placeholder: 'ex: April, 2011'
 .form-group
   = f.submit :save
