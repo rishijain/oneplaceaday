@@ -4,11 +4,33 @@
     %title Oneplaceaday
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %link{:href => "http://fonts.googleapis.com/css?family=Dancing+Script", :rel => "stylesheet", :type => "text/css"}/
     = csrf_meta_tags
   %body
     .container-fluid
-      .row
+      .row.main-row
         .col-md-6.col-md-offset-3
           = link_to "<h1>One place a day.</h1>".html_safe, root_path
+        .col-md-3.options-menu
+          .btn-group
+            %span.small-text{'data-toggle' => 'dropdown', 'type' => 'button', 'aria-expanded' => false}
+              Options
+              %span.caret
+            %ul.dropdown-menu{'role' => 'menu'}
+              - if user_signed_in?
+                %li
+                  %span
+                    %a{:href => edit_user_registration_path} My Profile
+                %li
+                  %a{:href => posts_path} My Posts
+                %li
+                  %a{:href => new_post_path} Add Post
+              - else
+                %li
+                  %a{:href => new_user_session_path} Sign In
+                %li
+                  %a{:href => new_user_registration_path} Sign Up
+                %li
+                  %a{:href => new_post_path} Add Post
       %br
       = yield
