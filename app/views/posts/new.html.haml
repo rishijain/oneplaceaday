@@ -1,0 +1,18 @@
+= form_for @post do |f|
+  .form-group
+    %label Title
+    = f.text_field :title
+  .form-group
+    %label Description
+    = f.text_area :description, rows: 20, cols: 100
+  .form-group
+    %label Place
+    = f.text_field :place
+  .form-group
+    %label Country
+    = f.text_field :country
+  .form-group
+    %label Visited On
+    = f.text_field :visited_on
+  .form-group
+    = f.submit :save
