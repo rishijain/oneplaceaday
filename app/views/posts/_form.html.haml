@@ -14,4 +14,7 @@
   %label Visited On
   = f.text_field :visited_on, placeholder: 'ex: April, 2011'
 .form-group
+  %label Picture
+  = f.file_field :photo
+.form-group
   = f.submit :save
