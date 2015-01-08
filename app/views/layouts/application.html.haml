@@ -10,7 +10,7 @@
     .container-fluid
       .row.main-row
         .col-md-6.col-md-offset-3
-          = link_to "<h1>One place a day.</h1>".html_safe, root_path
+          = link_to "<h1>At a happy place.</h1>".html_safe, root_path
         .col-md-3.options-menu
           .btn-group
             %span.small-text{'data-toggle' => 'dropdown', 'type' => 'button', 'aria-expanded' => false}
@@ -25,6 +25,8 @@
                   %a{:href => posts_path} My Posts
                 %li
                   %a{:href => new_post_path} Add Post
+                %li
+                  = link_to "Sign out", destroy_user_session_path, :method => :delete
               - else
                 %li
                   %a{:href => new_user_session_path} Sign In
