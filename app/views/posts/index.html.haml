@@ -5,7 +5,10 @@
       =image_tag p.photo.url 
       %br
       %br
-      %p.title= p.title 
+      - if post_is_editable?(params[:action])
+        %p.title= link_to p.title , edit_post_path(p.id)
+      - else
+        %p.title= p.title
       %p.description
         = p.description
       %p.info Visited on: #{p.visited_on}
