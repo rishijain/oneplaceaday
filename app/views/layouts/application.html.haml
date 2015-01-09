@@ -19,12 +19,13 @@
             %ul.dropdown-menu{'role' => 'menu'}
               - if user_signed_in?
                 %li
-                  %span
-                    %a{:href => edit_user_registration_path} My Profile
+                  %a{:href => edit_user_registration_path} My Profile
                 %li
                   %a{:href => my_posts_posts_path} My Posts
                 %li
                   %a{:href => new_post_path} Add Post
+                %li
+                  %a{:href => about_path} About
                 %li
                   = link_to "Sign out", destroy_user_session_path, :method => :delete
               - else
@@ -34,7 +35,7 @@
                   %a{:href => new_user_registration_path} Sign Up
                 %li
                   %a{:href => new_post_path} Add Post
-              %li
-                %a{:href => about_path} About
+                %li
+                  %a{:href => about_path} About
       %br
       = yield
