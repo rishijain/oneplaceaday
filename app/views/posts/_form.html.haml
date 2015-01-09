@@ -17,5 +17,6 @@
 .form-group
   %label Picture
   = f.file_field :photo
+= f.hidden_field :user_id, value: current_user.id
 .form-group
   = f.submit :save
