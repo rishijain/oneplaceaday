@@ -3,6 +3,6 @@ class Post < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 
-  validates :title, :description, :place, :country, :visited_on, presence: true
+  validates :title, :description, :place, :country, :visited_on, :photo, presence: true
 
 end
