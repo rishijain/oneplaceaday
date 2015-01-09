@@ -32,6 +32,11 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at DESC')
   end
 
+  def my_posts
+    @posts = current_user.my_posts
+    render 'index'
+  end
+
   private
 
   def permit_params

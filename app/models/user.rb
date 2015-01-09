@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
+
+  def my_posts
+    Post.where(:user_id => self.id).order('created_at DESC')
+  end
 end
