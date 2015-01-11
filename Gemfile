@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -42,4 +42,4 @@ gem 'haml-rails'
 
 gem 'carrierwave'
 gem 'cloudinary'
-gem 'devise'
+gem 'devise', '3.4.0'
