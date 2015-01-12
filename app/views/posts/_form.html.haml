@@ -1,22 +1,9 @@
-%br
-.form-group
-  %label Title
-  = f.text_field :title
-.form-group
-  %label Description
-  = f.text_area :description, rows: 20, cols: 100
-.form-group
-  %label Place
-  = f.text_field :place, placeholder: 'ex: Pune'
-.form-group
-  %label Country
-  = f.text_field :country, placeholder: 'ex: India' 
-.form-group
-  %label Visited On
-  = f.text_field :visited_on, placeholder: 'ex: April, 2011'
-.form-group
-  %label Picture
-  = f.file_field :photo
+= f.input :title
+= f.input :description, input_html: {rows: 20, cols: 100}, label: 'Description'
+= f.input :place, placeholder: 'ex: Pune'
+= f.input :country, placeholder: 'ex: India', as: :string
+= f.input :visited_on, placeholder: 'ex: April, 2011'
+= f.file_field :photo
 = f.hidden_field :user_id, value: current_user.id
-.form-group
-  = f.submit :save
+%br
+= f.button :submit
