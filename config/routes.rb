@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'posts#index'
 
-  resources :posts do
-    collection do
-      get :my_posts
+  resources :posts
+
+  resources :users do
+    member do
+      get 'posts'
     end
   end
 
