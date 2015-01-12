@@ -2,7 +2,7 @@
   .row
     .col-md-1
     .col-md-10.image-container.box-container
-      =image_tag p.photo.url 
+      =image_tag 'loading.gif', 'data-src' => p.photo.url
       %br
       %br
       - if post_is_editable?(params[:action])
