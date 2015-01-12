@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:my_posts]
+  before_filter :authenticate_user!, :only => []
 
   def posts
     user = User.find params[:id]
