@@ -2,7 +2,7 @@
   .row
     .col-md-1
     .col-md-10.image-container.box-container
-      =image_tag '', alt: 'loading.gif', 'data-original' => p.photo.url, class: 'lazy', data: {'no-turbolink' =>  true}
+      =image_tag 'loading.gif', 'data-original' => p.photo.url, class: 'lazy', data: {'no-turbolink' =>  true}
       %br
       %br
       - if post_is_editable?(params[:action])
