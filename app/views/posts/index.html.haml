@@ -5,7 +5,7 @@
       =image_tag 'loading.gif', 'data-original' => p.photo.url, class: 'lazy', data: {'no-turbolink' =>  true}
       %br
       %br
-      - if post_is_editable?(params[:action])
+      - if post_is_editable?(params[:action], p.user_id)
         %p.title= link_to p.title , edit_post_path(p.id)
       - else
         %p.title= p.title
