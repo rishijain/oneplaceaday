@@ -14,6 +14,7 @@
       %p.info Visited on: #{p.visited_on}
       %p.info Place: #{p.place + ', ' + p.country}
       = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
+      = image_tag 'nouserimage.png', class: 'profile-pic img-circle'
     .col-md-1
   %br
 
