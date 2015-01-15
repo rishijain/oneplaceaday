@@ -1,5 +1,6 @@
 = f.input :username
-= f.input :email, disabled: "disabled"
+= f.input :email, disabled: true
+%label Profile Picture
 = f.file_field :profile_photo
 %br
 = f.button :submit
