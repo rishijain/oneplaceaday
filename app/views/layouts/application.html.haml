@@ -19,7 +19,7 @@
             %ul.dropdown-menu{'role' => 'menu'}
               - if user_signed_in?
                 %li
-                  %a{:href => edit_user_registration_path} My Profile
+                  %a{:href => edit_user_path(current_user)} My Profile
                 %li
                   %a{:href => posts_user_path(current_user)} My Posts
                 %li
