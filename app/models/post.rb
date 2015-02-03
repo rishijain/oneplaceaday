@@ -5,4 +5,5 @@ class Post < ActiveRecord::Base
 
   validates :title, :description, :place, :country, :visited_on, :photo, presence: true
 
+  self.per_page = 3
 end

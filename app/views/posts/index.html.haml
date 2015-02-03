@@ -1,13 +1,12 @@
-- p = Post.last
 .row
-  - 3.times do 
-    .col-md-4.image-container.box-container
+  - @posts.each do |p|
+    .col-md-4.image-container.box-container.listing
       = link_to post_path(p.id) do
         =image_tag p.photo.url
       %br
       = link_to post_path(p.id) do
         - if post_is_editable?(params[:action], p.user_id)
-          %p.small_title= link_to p.title , edit_post_path(p.id)
+          %p.small_title= link_to p.title.first(21) , edit_post_path(p.id)
         - else
           %p.small_title= p.title
       %p.small_description
