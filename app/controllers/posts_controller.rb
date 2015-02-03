@@ -33,6 +33,10 @@ class PostsController < ApplicationController
     @posts = @posts - [Post.last]
   end
 
+  def show
+    @post = Post.find params[:id]
+  end
+
   private
 
   def permit_params

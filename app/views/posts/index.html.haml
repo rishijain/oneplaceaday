@@ -1,49 +1,15 @@
-- if params[:action] == 'index'
-  - [Post.last].each do |p|
-    .row
-      .col-md-1
-      .col-md-10.image-container.box-container
+- p = Post.last
+.row
+  - 3.times do 
+    .col-md-4.image-container.box-container
+      = link_to post_path(p.id) do
         =image_tag p.photo.url
-        %br
-        %br
+      %br
+      = link_to post_path(p.id) do
         - if post_is_editable?(params[:action], p.user_id)
-          %p.title= link_to p.title , edit_post_path(p.id)
+          %p.small_title= link_to p.title , edit_post_path(p.id)
         - else
-          %p.title= p.title
-        %p.description
-          = p.description
-        %p.info Visited on: #{p.visited_on}
-        %p.info Place: #{p.place + ', ' + p.country}
-        = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
-        - photo_url = p.user.profile_photo.url
-        - photo_url = 'nouserimage.png' if photo_url.nil?
-        = image_tag photo_url, class: 'profile-pic img-circle'
-      .col-md-1
-    %br
-- @posts.each do |p|
-  .row
-    .col-md-1
-    .col-md-10.image-container.box-container
-      =image_tag 'loading.gif', 'data-original' => p.photo.url, class: 'lazy', data: {'no-turbolink' =>  true}
-      %br
-      %br
-      - if post_is_editable?(params[:action], p.user_id)
-        %p.title= link_to p.title , edit_post_path(p.id)
-      - else
-        %p.title= p.title
-      %p.description
-        = p.description
-      %p.info Visited on: #{p.visited_on}
-      %p.info Place: #{p.place + ', ' + p.country}
+          %p.small_title= p.title
+      %p.small_description
+        = p.description.truncate(100)
       = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
-      - photo_url = p.user.profile_photo.url
-      - photo_url = 'nouserimage.png' if photo_url.nil?
-      = image_tag photo_url, class: 'profile-pic img-circle'
-    .col-md-1
-  %br
-
-:javascript
-
-  $("img.lazy").lazyload({
-    effecf: 'fadeIn'
-  });
