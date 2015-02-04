@@ -6,4 +6,8 @@ module ApplicationHelper
   def posts_index_page? params
     params[:controller] == 'posts' and params[:action] == 'index'
   end
+
+  def user_profile_page? params
+    params[:controller] == 'users' and params[:action] == 'posts'
+  end
 end

@@ -1,3 +1,13 @@
+- if user_profile_page? params
+  .row
+    .col-md-4
+    .col-md-4.txtCentered
+      - photo_url = @user.profile_photo.url
+      - photo_url = 'nouserimage.png' if photo_url.nil?
+      = image_tag photo_url, class: 'img-circle medium-image'
+      %p.medium_title= @user.username
+    .col-md-4
+
 - if @posts.first.nil?
   .row
     .col-md-4
