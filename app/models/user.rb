@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   mount_uploader :profile_photo, ProfilePhotoUploader
 
   has_many :posts
+  has_many :comments
 
   def my_posts
     Post.where(:user_id => self.id).order('created_at DESC')

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :add_comment]
 
   def new
     @post = Post.new
@@ -35,6 +35,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
+  end
+
+  def add_comment
+    post = Post.find(params[:id])
+    post.comments.create(user_id: params[:comment][:user_id], thought: params[:comment][:thought])
+    redirect_to post_path(post.id)
   end
 
   private
