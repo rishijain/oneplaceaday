@@ -107,14 +107,29 @@ nav{
   text-align:center;
 }
 
-p.medium_title {
-  font-size:50px;
+p.txtStyle{
   font-family: 'Dancing Script', cursive;
-  font-size:50px;
   font-weight:500;
   font-family: 'Dancing Script', cursive;
 }
 
+p.medium_title {
+  font-size:50px;
+}
+
+p.small_title {
+  font-size:30px;
+}
+
+p.tiny-text {
+  font-size:20px;
+}
+
 img.medium-image {
   height:130px;
+}
+
+.comment-text{
+  text-align:left;
+  float:left;
 }

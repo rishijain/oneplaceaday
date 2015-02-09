@@ -5,14 +5,14 @@
       - photo_url = @user.profile_photo.url
       - photo_url = 'nouserimage.png' if photo_url.nil?
       = image_tag photo_url, class: 'img-circle medium-image'
-      %p.medium_title= @user.username
+      %p.txtStyle.medium_title= @user.username
     .col-md-4
 
 - if @posts.first.nil?
   .row
     .col-md-4
     .col-md-4.image-container.box-container
-      %p.small_title No more posts exist..!!
+      %p.txtStyle.small_title No more posts exist..!!
 - else
   .row
     - @posts.each do |p|
@@ -21,7 +21,7 @@
           =image_tag p.photo.url
         %br
         = link_to post_path(p.id) do
-          %p.small_title= p.title
+          %p.txtStyle.small_title= p.title
         %p.small_description
           = p.description.truncate(100)
         = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
@@ -29,20 +29,5 @@
 
 - if posts_index_page? params
   %nav
-    %ul.pagination
-      %li.disabled
-        %a{href:"#"}
-          %span <
-      %li{class: navigation_active_class(params[:page], 1)}
-        %a{href: '/page/1'} 1
-      %li{class: navigation_active_class(params[:page], 2)}
-        %a{href: '/page/2'} 2
-      %li{class: navigation_active_class(params[:page], 3)}
-        %a{href: '/page/3'} 3
-      %li{class: navigation_active_class(params[:page], 4)}
-        %a{href: '/page/4'} 4
-      %li{class: navigation_active_class(params[:page], 5)}
-        %a{href: '/page/5'} 5
-      %li.disabled
-        %a{href:"#"}
-          %span >
+    %ul
+      = will_paginate(@posts)
