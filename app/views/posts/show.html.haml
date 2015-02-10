@@ -47,7 +47,7 @@
       .col-md-1
         = image_tag image_for_current_user(current_user), class: 'profile-pic img-circle'
       .col-md-10.comment
-        %p.comment-text.txtStyle.tiny-text= current_user.username
+        %p.comment-text.txtStyle.tiny-text= username_for_user(current_user)
         %br
         = c.input :thought, as: :text, label: false
         = c.hidden_field :user_id, value: value_of_user_id(current_user)
