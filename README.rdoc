@@ -1,28 +1,12 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+At a happy place.
+www.athappyplace.com
 
-Things you may want to cover:
+The idea is to share the story of that happy place of yours with fellow enthusiasts. It could be anyplace you have travelled or came across by chance. All you need is a good quality picture and a story.
 
-* Ruby version
+To contribute:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. Fork
+2. Commit your changes
+3. Send a pull request
