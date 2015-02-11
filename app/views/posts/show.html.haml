@@ -4,8 +4,8 @@
     =image_tag @post.photo.url
     %br
     %br
-    - if post_is_editable?(params[:action], @post.user_id)
-      %p.title= link_to @post.title , edit_post_path(@post.id)
+    - if post_is_editable?(@post.user, current_user)
+      %p.title= link_to @post.title, edit_post_path(@post.id)
     - else
       %p.title= @post.title
     %p.description

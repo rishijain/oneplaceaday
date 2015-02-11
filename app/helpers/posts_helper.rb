@@ -1,6 +1,6 @@
 module PostsHelper
-  def post_is_editable?(action, user_id)
-    true if action == 'posts' and current_user and current_user.id == user_id
+  def post_is_editable?(author, logged_in_user)
+    author == logged_in_user
   end
 
   def value_of_user_id(user)
