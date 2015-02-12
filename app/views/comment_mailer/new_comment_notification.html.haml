@@ -1,8 +1,4 @@
--#
+%p Hello #{@user.username}, #{@commenter} recently commented on your post #{@post.title}.
 
-  %p Hello #{@user.username}, #{@commenter} recently commented on your post #{@post.title}.
+= link_to 'Read here', post_path(@post)
 
-  = link_to 'Read here', post_path(@post)
-
-
-%p hello
