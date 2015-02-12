@@ -33,9 +33,11 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  
+
   # Mail service
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
