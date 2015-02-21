@@ -16,4 +16,8 @@ module PostsHelper
     return 'Anonymous User' if user.nil?
     user.username
   end
+
+  def map_image(latitude, longitude)
+    image_tag "http://maps.googleapis.com/maps/api/staticmap?size=450x300&zoom=15&markers=#{latitude}%2C#{longitude}"
+  end
 end

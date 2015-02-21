@@ -74,6 +74,7 @@ GEM
     execjs (2.2.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    geocoder (1.2.7)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     haml (4.0.5)
@@ -190,6 +191,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.0.0)
   devise (= 3.4.0)
+  geocoder (~> 1.2.7)
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
