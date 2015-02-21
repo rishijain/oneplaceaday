@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
+  searchkick
   has_many :posts
   has_many :comments
 
