@@ -18,6 +18,7 @@ module PostsHelper
   end
 
   def map_image(latitude, longitude)
+    return nil if latitude.nil? and longitude.nil?
     image_tag "http://maps.googleapis.com/maps/api/staticmap?size=450x300&zoom=15&markers=#{latitude}%2C#{longitude}"
   end
 end
