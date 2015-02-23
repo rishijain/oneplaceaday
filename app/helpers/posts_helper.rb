@@ -19,6 +19,6 @@ module PostsHelper
 
   def map_image(latitude, longitude)
     return nil if latitude.nil? and longitude.nil?
-    image_tag "http://maps.googleapis.com/maps/api/staticmap?size=450x300&zoom=15&markers=#{latitude}%2C#{longitude}"
+    link_to raw("<span class='glyphicon glyphicon-globe'><span>"), "https://www.google.co.in/maps/place/#{latitude},#{longitude}", target: "_blank;"
   end
 end

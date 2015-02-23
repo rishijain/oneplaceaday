@@ -11,8 +11,9 @@
     %p.description
       = @post.description
     %p.info Visited on: #{@post.visited_on}
-    %p.info Place: #{@post.place + ', ' + @post.country}
-    = map_image(@post.latitude, @post.longitude)
+    %p.info 
+      Place: #{@post.place + ', ' + @post.country}
+      = map_image(@post.latitude, @post.longitude)
     = link_to "<p class='info'>Author: #{@post.user.username}</p>".html_safe, posts_user_path(@post.user)
     - photo_url = @post.user.profile_photo.url
     - photo_url = 'nouserimage.png' if photo_url.nil?
