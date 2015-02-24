@@ -47,3 +47,8 @@ gem 'devise', '3.4.0'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.0.6'
 gem 'searchkick'
+
+# Facilitate login using social networking sites
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-twitter', '~> 1.1.0'
+gem 'omniauth-facebook', '~> 2.0.1'
