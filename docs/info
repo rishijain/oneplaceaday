@@ -1,0 +1,11 @@
+For sign in/sign up:
+
+1. We have used omniauth for facebook and twitter sign in.
+2. We have registered apps for facebook and twitter.
+3. We need to set environment variables at the server. We have done it on heroku.
+
+
+For mailers:
+
+1. We are using mandrill for mail service.
+2. We have set environment variables on heroku for registered email and password.
