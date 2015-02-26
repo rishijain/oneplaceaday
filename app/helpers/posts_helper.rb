@@ -21,4 +21,16 @@ module PostsHelper
     return nil if latitude.nil? and longitude.nil?
     link_to raw("<span class='glyphicon glyphicon-globe'><span>"), "https://www.google.co.in/maps/place/#{latitude},#{longitude}", target: "_blank;"
   end
+
+  def get_user_profile_picture(user)
+    if user.nil?
+      pic_url = 'nouserimage.png'
+    elsif user.provider.present?
+      pic_url = user.picture_url
+    else
+      pic_url = user.profile_photo.url
+    end
+    pic_url = 'nouserimage.png' if pic_url.nil?
+    pic_url
+  end
 end

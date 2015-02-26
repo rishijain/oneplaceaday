@@ -19,12 +19,15 @@ class User < ActiveRecord::Base
     user = self.where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.profile_photo = auth.info.image
     end
 
+    user.picture_url = auth.info.image
+
     if auth.provider.eql?('twitter')
+      user.username = auth.info.nickname
       user.save(validate: false) # because twitter does not provide email
     else
+      user.username auth.info.name
       user.save
     end
 
