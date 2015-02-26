@@ -15,6 +15,14 @@ class User < ActiveRecord::Base
     Post.where(:user_id => self.id).order('created_at DESC')
   end
 
+  def facebook?
+    provider == 'facebook'
+  end
+
+  def twitter?
+    provider == 'twitter'
+  end
+
   def self.from_omniauth(auth)
     user = self.where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.email = auth.info.email
