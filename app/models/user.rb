@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
       user.username = auth.info.nickname
       user.save(validate: false) # because twitter does not provide email
     else
-      user.username auth.info.name
+      user.username = auth.info.name
       user.save
     end
 
