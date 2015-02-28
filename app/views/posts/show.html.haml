@@ -7,7 +7,7 @@
     - if post_is_editable?(@post.user, current_user)
       %p.title
         = link_to @post.title, edit_post_path(@post.id)
-        %span.glyphicon.glyphicon-heart.untitle.like_count 11
+        %span.glyphicon.glyphicon-heart.untitle.like_count= @post.likes_count
     - else
       %p.title
         = @post.title

@@ -36,9 +36,9 @@ module PostsHelper
 
   def get_like_button(post, current_user)
     if current_user.present? and post.user != current_user
-      link_to raw("<span class='glyphicon glyphicon-heart untitle like_count #{class_for_like_unlike(post.id, current_user)}'>11</span>"), like_unlike_path(post.id, current_user.id), remote: true
+      link_to raw("<span class='glyphicon glyphicon-heart untitle like_count #{class_for_like_unlike(post.id, current_user)}'>#{post.likes_count}</span>"), like_unlike_path(post.id, current_user.id), remote: true
     else
-      raw("<span class='glyphicon glyphicon-heart untitle like_count'>11</span>")
+      raw("<span class='glyphicon glyphicon-heart untitle like_count'>#{post.likes_count}</span>")
     end
   end
 
