@@ -1,7 +1,7 @@
 .row
   .col-md-1
   .col-md-10.image-container.box-container
-    =image_tag @post.photo.url
+    = image_tag @post.photo.url
     %br
     %br
     - if post_is_editable?(@post.user, current_user)
@@ -63,3 +63,25 @@
   $('#add_comment_link').click(function(){
     $('#new_comment').submit()
   });
+
+  stLight.options({ 
+    publisher: "fdbea845-8135-4aa2-8e80-2b90c45e6728",
+    doNotHash: false,
+    doNotCopy: false,
+    hashAddressBar: false
+  });
+  var postImageUrl = "#{@post.photo.url}"
+  var options = {
+    "publisher": "fdbea845-8135-4aa2-8e80-2b90c45e6728",
+    "position": "right",
+    "ad": { "visible": false, "openDelay": 5, "closeDelay": 0 },
+    "chicklets": { "items": ["facebook", "twitter", "googleplus", "email", "sharethis"]},
+    "chicklets_params": {
+      "facebook": { "st_image": postImageUrl },
+      "twitter": { "st_image": postImageUrl },
+      "googleplus": { "st_image": postImageUrl },
+      "email": { "st_image": postImageUrl },
+      "sharethis": { "st_image": postImageUrl }
+    }
+  };
+  var st_hover_widget = new sharethis.widgets.hoverbuttons(options);

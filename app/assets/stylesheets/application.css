@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+#sthoverbuttons #sthoverbuttonsMain {
+  width: 45px !important;
+}
