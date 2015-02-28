@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   searchkick
   has_many :posts
   has_many :comments
+  has_many :likes
 
   def my_posts
     Post.where(:user_id => self.id).order('created_at DESC')
@@ -21,6 +22,11 @@ class User < ActiveRecord::Base
 
   def twitter?
     provider == 'twitter'
+  end
+
+  def has_liked_post?(post_id)
+    like = Like.where(post_id: post_id, user_id: id).first
+    like.present?
   end
 
   def self.from_omniauth(auth)

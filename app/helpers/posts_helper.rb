@@ -33,4 +33,16 @@ module PostsHelper
     pic_url = 'nouserimage.png' if pic_url.nil?
     pic_url
   end
+
+  def get_like_button(post, current_user)
+    if current_user.present? and post.user != current_user
+      link_to raw("<span class='glyphicon glyphicon-heart untitle like_count #{class_for_like_unlike(post.id, current_user)}'>11</span>"), like_unlike_path(post.id, current_user.id), remote: true
+    else
+      raw("<span class='glyphicon glyphicon-heart untitle like_count'>11</span>")
+    end
+  end
+
+  def class_for_like_unlike(post_id, current_user)
+    current_user.has_liked_post?(post_id) ? 'red' : 'black'
+  end
 end

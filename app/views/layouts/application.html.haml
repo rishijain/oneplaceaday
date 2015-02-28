@@ -11,7 +11,8 @@
     .container-fluid
       .row.main-row
         .col-md-6.col-md-offset-3
-          = link_to "<h1>At a happy place.</h1>".html_safe, root_path
+          = link_to  root_path do 
+            %h1 At a happy place.
         .col-md-3.options-menu
           .btn-group
             %span.small-text{'data-toggle' => 'dropdown', 'type' => 'button', 'aria-expanded' => false}

@@ -5,9 +5,13 @@
     %br
     %br
     - if post_is_editable?(@post.user, current_user)
-      %p.title= link_to @post.title, edit_post_path(@post.id)
+      %p.title
+        = link_to @post.title, edit_post_path(@post.id)
+        %span.glyphicon.glyphicon-heart.untitle.like_count 11
     - else
-      %p.title= @post.title
+      %p.title
+        = @post.title
+        = get_like_button(@post, current_user)
     %p.description
       = @post.description
     %p.info Visited on: #{@post.visited_on}
@@ -56,7 +60,6 @@
   .col-md-1
 
 :javascript
-
   $('#add_comment_link').click(function(){
     $('#new_comment').submit()
   });

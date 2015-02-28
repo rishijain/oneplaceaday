@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/page/:page' => 'posts#index'
   get 'about' => 'home#about'
+
+  get '/likes/:post_id/:user_id/up_or_down' => 'likes#up_or_down', as: :like_unlike
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

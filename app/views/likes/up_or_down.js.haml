@@ -1,0 +1,7 @@
+:plain
+  if("#{@action}" == 'like'){
+    $('.like_count').addClass('red');
+  }else if("#{@action}" == 'unlike'){
+    $('.like_count').removeClass('red');
+  }
+  $('.like_count').text("#{@likes_count}");
