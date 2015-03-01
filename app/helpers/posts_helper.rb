@@ -38,8 +38,12 @@ module PostsHelper
     if current_user.present? and post.user != current_user
       link_to raw("<span class='glyphicon glyphicon-heart untitle like_count #{class_for_like_unlike(post.id, current_user)}'>#{post.likes_count}</span>"), like_unlike_path(post.id, current_user.id), remote: true
     else
-      raw("<span class='glyphicon glyphicon-heart untitle like_count'>#{post.likes_count}</span>")
+      raw("<span class='glyphicon glyphicon-heart untitle like_count #{class_for_link_unlike_based_on_count(post)}'>#{post.likes_count}</span>")
     end
+  end
+
+  def class_for_link_unlike_based_on_count(post)
+    post.likes_count != 0 ? 'red' : 'black'
   end
 
   def class_for_like_unlike(post_id, current_user)
