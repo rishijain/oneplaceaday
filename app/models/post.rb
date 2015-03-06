@@ -12,6 +12,10 @@ class Post < ActiveRecord::Base
 
   self.per_page = 3
 
+  def description
+    super && super.html_safe
+  end
+
   private
 
   def full_street_address
