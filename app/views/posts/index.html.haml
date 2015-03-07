@@ -22,8 +22,8 @@
         %br
         = link_to post_path(p.id) do
           %p.txtStyle.small_title= p.title
-        %p.small_description
-          = p.description.truncate(100)
+        .small_description
+          = truncate(p.description, length: 100, escape: false)
         = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
 
 
