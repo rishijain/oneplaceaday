@@ -47,6 +47,7 @@ gem 'devise', '3.4.0'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.0.6'
 gem 'searchkick'
+gem 'tinymce-rails'
 
 # Facilitate login using social networking sites
 gem 'omniauth', '~> 1.2.2'
