@@ -49,4 +49,11 @@ module PostsHelper
   def class_for_like_unlike(post_id, current_user)
     current_user.has_liked_post?(post_id) ? 'red' : 'black'
   end
+
+  def custom_url(post)
+    s = post.photo.url.split(post.photo.filename)
+    s << "w_323,h_214/"
+    s << post.photo.filename
+    s.join('')
+  end
 end
