@@ -1,11 +1,11 @@
 == README
 
-##About the project:
+== About the project:
 At a happy place.
 
 The idea is to share the story of that happy place of yours with fellow enthusiasts. It could be anyplace you have travelled or came across by chance. All you need is a good quality picture and a story.
 
-##To contribute:
+== Contributing guidelines:
 
 We follow all the basic guidelines followed by rails. We highly recommend to first go through rails contributing guidelines. Here:
 [Contributing to Ruby on Rails guide](http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html)
@@ -34,7 +34,7 @@ and
         git push origin branch_name
 7. Send Pull Request from your new branch.
 
-##Things to remember:
+== Things to remember:
 1. Keep your master updated with main repo’s master.
 2. Always work on a new branch. 
 3. Before sending a Pull Request, fetch the main repo’s master commits and reapply your patch on top of latest pulled commits.
