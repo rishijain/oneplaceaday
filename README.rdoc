@@ -1,11 +1,40 @@
 == README
 
+== About the project:
 At a happy place.
 
 The idea is to share the story of that happy place of yours with fellow enthusiasts. It could be anyplace you have travelled or came across by chance. All you need is a good quality picture and a story.
 
-To contribute:
+== Contributing guidelines:
 
-1. Fork
-2. Commit your changes
-3. Send a pull request
+We follow all the basic guidelines followed by rails. We highly recommend to first go through rails contributing guidelines. Here:
+[Contributing to Ruby on Rails guide](http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html)
+For the gist of it, these are the steps you should follow:
+
+1. Fork the main repo rishijain/oneplaceaday
+2. Clone from forked repo i.e <your username>/oneplaceaday
+3. Since you have forked the repo, remote will be default ‘origin’ and to push code to your new branch
+        git push origin my_new_branch
+        
+4. Add a remote 'upstream' to point to main repo.
+        git remote add upstream git@github.com:rishijain/oneplaceaday.git
+
+5. It is likely that while you have been working on your branch, the main master has gone some changes. Do these:
+
+Fetch upstream:
+        git fetch upstream master
+Checkout master:
+        git checkout master
+and
+        git rebase upstream/master
+        git push origin master
+6. To apply your patch on top of these commits,
+        git checkout branch_name
+        git rebase upstream/master
+        git push origin branch_name
+7. Send Pull Request from your new branch.
+
+== Things to remember:
+1. Keep your master updated with main repo’s master.
+2. Always work on a new branch. 
+3. Before sending a Pull Request, fetch the main repo’s master commits and reapply your patch on top of latest pulled commits.
