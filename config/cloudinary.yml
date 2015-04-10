@@ -1,8 +1,8 @@
 ---
 development:
-  cloud_name: dbwtytrfc
-  api_key: '519758747641278'
-  api_secret: bfQAZE_0L_lh-6CfcaI4q9rDSmA
+  cloud_name: dsz68cjzb
+  api_key: '963536751425826'
+  api_secret: 6jOXifSDi2o8XpUhE7cEXGn-qFQ
   enhance_image_tag: true
   static_image_support: false
 production:
@@ -12,8 +12,14 @@ production:
   enhance_image_tag: true
   static_image_support: true
 test:
-  cloud_name: dbwtytrfc
-  api_key: '519758747641278'
-  api_secret: bfQAZE_0L_lh-6CfcaI4q9rDSmA
+  cloud_name: dsz68cjzb
+  api_key: '963536751425826'
+  api_secret: 6jOXifSDi2o8XpUhE7cEXGn-qFQ
+  enhance_image_tag: true
+  static_image_support: false
+staging:
+  cloud_name: dsz68cjzb
+  api_key: '963536751425826'
+  api_secret: 6jOXifSDi2o8XpUhE7cEXGn-qFQ
   enhance_image_tag: true
   static_image_support: false
