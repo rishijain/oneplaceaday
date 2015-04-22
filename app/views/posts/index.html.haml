@@ -23,7 +23,7 @@
         = link_to post_path(p.id) do
           %p.txtStyle.small_title= p.title
         .small_description
-          = truncate(p.description, length: 100, escape: false)
+          = sanitize(truncate(p.description, length: 100, escape: false), attributes: %w(href))
         = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
 
 
