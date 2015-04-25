@@ -29,8 +29,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    page_number = params["page"] || 1
-    @posts = Post.page(page_number).order('created_at DESC')
+    @posts = Post.all
   end
 
   def show

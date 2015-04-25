@@ -25,9 +25,3 @@
         .small_description
           = sanitize(truncate(p.description, length: 100, escape: false), attributes: %w(href))
         = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
-
-
-- if posts_index_page? params
-  %nav
-    %ul
-      = will_paginate(@posts)
