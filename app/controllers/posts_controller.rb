@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order('views_count DESC , created_at DESC')
   end
 
   def show
