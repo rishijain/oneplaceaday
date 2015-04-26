@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+#
+#
+
+Statistic.create(page_type: 'home page')
+Statistic.create(page_type: 'about page')

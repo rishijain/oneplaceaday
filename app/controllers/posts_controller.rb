@@ -30,6 +30,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order('views_count DESC , created_at DESC')
+    Statistic.increment_counter(:count, Statistic.home_page_view_count.id)
   end
 
   def show
