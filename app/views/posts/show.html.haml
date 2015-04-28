@@ -2,7 +2,7 @@
   %meta{property: 'og:title',content: "#{@post.title}"}
   %meta{property: 'og:url', content: "http://www.athappyplace.com/posts/#{@post.id}"}
   %meta{property: 'og:image', content: "#{@post.photo.url}"}
-  %meta{property: 'og:description', content: "#{@post.description.truncate(300)}"}
+  %meta{property: 'og:description', content: "#{sanitize(truncate(@post.description, length: 300, escape: false), attributes: %w(href))}"}
 
 .row
   .col-md-1
