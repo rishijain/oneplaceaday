@@ -3,6 +3,10 @@ module PostsHelper
     author == logged_in_user
   end
 
+  def offset_for_class(index)
+    index == 0 ? 'col-md-offset-2' : ''
+  end
+
   def value_of_user_id(user)
     user.nil? ? nil : user.id
   end

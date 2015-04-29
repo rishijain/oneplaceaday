@@ -36,6 +36,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find params[:id]
     Post.increment_counter(:views_count, @post.id) if @post.user_id != current_user.try(:id)
+    @suggested_posts = Post.all.sample(2)
   end
 
   def add_comment
