@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
   geocoded_by :full_street_address
   after_validation :geocode, if: :full_street_address_changed?
 
+  scope :all_except, -> (post_id) { where.not(id: post_id) }
   self.per_page = 3
 
   def description
