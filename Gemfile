@@ -53,3 +53,6 @@ gem 'tinymce-rails'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-twitter', '~> 1.1.0'
 gem 'omniauth-facebook', '~> 2.0.1'
+
+
+gem 'rails_12factor'
