@@ -22,6 +22,8 @@
         %br
         = link_to post_path(p.id) do
           %p.txtStyle.small_title= p.title
+        %span.glyphicon.glyphicon-heart.untitle.like_count{class: class_for_link_unlike_based_on_count(p)}= p.likes_count
+        %span.glyphicon.glyphicon-eye-open.untitle= p.views_count
         .small_description
           = sanitize(truncate(p.description, length: 100, escape: false), attributes: %w(href))
         = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
