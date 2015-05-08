@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426112623) do
+ActiveRecord::Schema.define(version: 20150508181258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,19 +32,20 @@ ActiveRecord::Schema.define(version: 20150426112623) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",       limit: 255
+    t.string   "title",              limit: 255
     t.text     "description"
-    t.string   "place",       limit: 255
-    t.string   "country",     limit: 255
-    t.string   "visited_on",  limit: 255
+    t.string   "place",              limit: 255
+    t.string   "country",            limit: 255
+    t.string   "visited_on",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo",       limit: 255
+    t.string   "photo",              limit: 255
     t.integer  "user_id"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "likes_count",             default: 0
-    t.integer  "views_count",             default: 0
+    t.integer  "likes_count",                    default: 0
+    t.integer  "views_count",                    default: 0
+    t.text     "backup_description"
   end
 
   create_table "statistics", force: :cascade do |t|

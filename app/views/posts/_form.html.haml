@@ -1,9 +1,11 @@
 = f.input :title
+%label * Choose cover photo
+= f.file_field :photo
+%br
 = f.input :description, input_html: {rows: 20, cols: 100}, label: 'Description'
 = f.input :place, placeholder: 'ex: Pune'
 = f.input :country, placeholder: 'ex: India', as: :string
 = f.input :visited_on, placeholder: 'ex: April, 2011'
-= f.file_field :photo
 = f.hidden_field :user_id, value: current_user.id
 %br
 = f.button :submit

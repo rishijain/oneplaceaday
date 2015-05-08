@@ -10,8 +10,8 @@ enableTinyMCE = ->
     browser_spellcheck: true
   }
 
-$(document).on "ready page:load", ->
-  enableTinyMCE()
+#$(document).on "ready page:load", ->
+#enableTinyMCE()
 
-$(document).on "page:receive", ->
-  tinymce.remove()
+#$(document).on "page:receive", ->
+#tinymce.remove()
