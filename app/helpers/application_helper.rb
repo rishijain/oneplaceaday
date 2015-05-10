@@ -10,4 +10,13 @@ module ApplicationHelper
   def user_profile_page? params
     params[:controller] == 'users' and params[:action] == 'posts'
   end
+
+  def social_media_image(provider)
+    if provider == 'facebook'
+      name = 'facebook.png'
+    elsif provider == 'twitter'
+      name = 'twitter.png'
+    end
+    name
+  end
 end

@@ -18,8 +18,12 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 
+
+<p>Sign in using your social media account with one click</p>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'medium-text' %><br/>
+    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+      <%= image_tag social_media_image(provider.to_s), width: 40 %>
+    <%end %>
   <% end -%>
 <% end -%>
