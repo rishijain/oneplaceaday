@@ -56,3 +56,4 @@ gem 'omniauth-facebook', '~> 2.0.1'
 
 
 gem 'rails_12factor'
+gem 'friendly_id', '~> 5.1.0'

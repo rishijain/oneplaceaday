@@ -26,4 +26,4 @@
         %span.glyphicon.glyphicon-eye-open.untitle= p.views_count
         .small_description
           = sanitize(truncate(p.description, length: 100, escape: false), attributes: %w(href))
-        = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, posts_user_path(p.user)
+        = link_to "<p class='info'>Author: #{p.user.username}</p>".html_safe, user_path(p.user)
