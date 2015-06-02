@@ -45,6 +45,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    chunky_png (1.3.4)
     cloudinary (1.0.80)
       aws_cf_signer
       rest-client
@@ -55,6 +56,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    compass (0.12.7)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.19)
     devise (3.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -74,6 +79,7 @@ GEM
     execjs (2.2.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    fssm (0.2.10)
     geocoder (1.2.7)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
@@ -99,6 +105,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    medium-editor-rails (2.0.9)
+      railties (>= 3.0)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
@@ -132,7 +140,7 @@ GEM
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
     orm_adapter (0.5.0)
-    pg (0.17.1)
+    pg (0.18.1)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -155,10 +163,10 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.1)
       loofah (~> 2.0)
-    rails_12factor (0.0.2)
+    rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_serve_static_assets (0.0.2)
+    rails_serve_static_assets (0.0.4)
     rails_stdout_logging (0.0.3)
     railties (4.2.0)
       actionpack (= 4.2.0)
@@ -168,6 +176,10 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    responder (0.2.4)
+      compass (>= 0.12.2)
+      rake
+      sass (>= 3.2.0)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
     rest-client (1.7.2)
@@ -202,8 +214,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    tinymce-rails (4.1.6)
-      railties (>= 3.1.1)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -227,18 +237,19 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
+  medium-editor-rails
   omniauth (~> 1.2.2)
   omniauth-facebook (~> 2.0.1)
   omniauth-twitter (~> 1.1.0)
   pg
   rails (= 4.2.0)
   rails_12factor
+  responder
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   searchkick
   simple_form
   spring
-  tinymce-rails
   turbolinks
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0.6)

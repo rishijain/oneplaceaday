@@ -1,0 +1,40 @@
+.row
+  .col-md-1
+  .col-md-10.image-container.box-container
+    - if editable?
+      .editable
+        .title
+          %em{"data-field" => "title"}= @post.title
+
+        .image= image_tag @post.photo.url
+
+        .description{"data-field" => "description", "data-placeholder" => "Enter Description"}
+          = @post.description
+
+        .visit
+          Visited on :
+          %span.visited-on{"data-field" => "visited_on", "data-placeholder" => "When did you visited ?"}
+            = @post.visited_on
+
+        .location
+          Place :
+          %span.place{"data-field" => "place", "data-placeholder" => "Which place ?"}= @post.place
+          <b>|</b>
+          %span.country{"data-field" => "country", "data-placeholder" => "Which country ?"}= @post.country
+          %span= map_image(@post.latitude, @post.longitude)
+    - else
+      .title
+        = @post.title
+        = get_like_button(@post, current_user)
+        %span.glyphicon.glyphicon-eye-open.untitle= @post.views_count
+
+      .image= image_tag @post.photo.url
+      .description= @post.description
+      .visited_on Visited on: #{@post.visited_on}
+      .place
+        Place: #{@post.place + ', ' + @post.country}
+        = map_image(@post.latitude, @post.longitude)
+
+      = link_to "<p class='info'>Author: #{@post.user.username}</p>".html_safe, posts_user_path(@post.user)
+      = image_tag get_user_profile_picture(@post.user), class: 'profile-pic img-circle'
+  .col-md-1

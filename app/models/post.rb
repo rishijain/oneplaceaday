@@ -13,10 +13,6 @@ class Post < ActiveRecord::Base
   scope :all_except, -> (post_id) { where.not(id: post_id) }
   self.per_page = 3
 
-  def description
-    super && super.html_safe
-  end
-
   private
 
   def full_street_address

@@ -1,6 +1,6 @@
 module PostsHelper
-  def post_is_editable?(author, logged_in_user)
-    author == logged_in_user
+  def editable?
+    @post.user == current_user
   end
 
   def offset_for_class(index)

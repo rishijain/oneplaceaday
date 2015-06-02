@@ -1,30 +1,30 @@
 class PostsController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index, :show, :add_comment]
-
-  def new
-    @post = Post.new
-  end
+  before_filter :build_post, only: [:new, :create]
+  before_filter :get_post, only: [:show, :update]
 
   def create
-    @post = Post.create(permit_params)
-    if @post.save
-      redirect_to posts_path
-    else
-      render 'new'
+    respond_to do |format|
+      format.json do
+        if @post.save
+          render(nothing: true, status: :ok)
+        else
+          render(json: { data: { errors: @post.errors.messages }}, status: :unprocessable_entity)
+        end
+      end
     end
   end
 
-  def edit
-    @post = Post.find params[:id]
-  end
-
   def update
-    @post = Post.find params[:id]
-    if @post.update(permit_params)
-      redirect_to posts_path
-    else
-      render 'edit'
+    respond_to do |format|
+      format.json do
+        if @post.update(permit_params)
+          render(nothing: true, status: :ok)
+        else
+          render(json: { data: { errors: @post.errors.messages }}, status: :unprocessable_entity)
+        end
+      end
     end
   end
 
@@ -34,7 +34,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find params[:id]
     Post.increment_counter(:views_count, @post.id) if @post.user_id != current_user.try(:id)
     @suggested_posts = Post.all_except(@post.id).sample(2)
   end
@@ -48,6 +47,14 @@ class PostsController < ApplicationController
   private
 
   def permit_params
-    params.require(:post).permit(:id, :title, :description, :country, :place, :visited_on, :photo, :user_id)
+    params.fetch(:post).permit(:title, :description, :country, :place, :visited_on, :photo)
+  end
+
+  def build_post
+    @post = current_user.posts.new(permit_params)
+  end
+
+  def get_post
+    @post = Post.find(params[:id])
   end
 end

@@ -34,7 +34,7 @@ a{
   padding-top:40px;
 }
 
-.small-text, .info{
+.small-text, .info, .visit, .location{
   font-family: 'Josefin Slab', serif;
 }
 
@@ -70,6 +70,8 @@ a{
   text-align:left;
   padding-left:70px;
   padding-right:70px;
+  margin-top:65px;
+  margin-bottom:25px;
   font-family: 'Kalam', cursive;
 }
 
@@ -162,13 +164,6 @@ img.medium-image {
 .image-medium{
   height:214px;
   width:323px;
-}
-
-#tinymce {
-  border:       none;
-  font-size:    14px;
-  font-family: 'Kalam', cursive;
-  line-height:  5px;
 }
 
 .underline {

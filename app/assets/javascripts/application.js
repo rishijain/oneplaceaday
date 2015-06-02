@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require tinymce-jquery
+//= require medium-editor
 //= require_tree .

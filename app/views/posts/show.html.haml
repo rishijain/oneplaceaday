@@ -4,32 +4,7 @@
   %meta{property: 'og:image', content: "#{@post.photo.url}"}
   %meta{property: 'og:description', content: "#{sanitize(truncate(@post.description, length: 300, escape: false), attributes: %w(href))}"}
 
-.row
-  .col-md-1
-  .col-md-10.image-container.box-container
-    = image_tag @post.photo.url
-    %br
-    %br
-    - if post_is_editable?(@post.user, current_user)
-      %p.title
-        = link_to @post.title, edit_post_path(@post.id), title: 'Click to edit this post'
-        %span.glyphicon.glyphicon-heart.untitle.like_count{class: class_for_link_unlike_based_on_count(@post)}= @post.likes_count
-        %span.glyphicon.glyphicon-eye-open.untitle= @post.views_count
-    - else
-      %p.title
-        = @post.title
-        = get_like_button(@post, current_user)
-        %span.glyphicon.glyphicon-eye-open.untitle= @post.views_count
-    .description
-      = @post.description
-    %p.info Visited on: #{@post.visited_on}
-    %p.info 
-      Place: #{@post.place + ', ' + @post.country}
-      = map_image(@post.latitude, @post.longitude)
-    = link_to "<p class='info'>Author: #{@post.user.username}</p>".html_safe, posts_user_path(@post.user)
-    = image_tag get_user_profile_picture(@post.user), class: 'profile-pic img-circle'
-  .col-md-1
-%br
+= render 'contents'
 
 .row
   .col-md-1
@@ -82,6 +57,9 @@
   .col-md-1
 
 :javascript
+  var post_url = "#{@post.new_record? ? posts_path : post_path(@post)}";
+  var post_method = "#{@post.new_record? ? 'POST' : 'PATCH'}";
+
   $('#add_comment_link').click(function(){
     $('#new_comment').submit()
   });
