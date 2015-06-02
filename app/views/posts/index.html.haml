@@ -8,7 +8,7 @@
       %p.txtStyle.medium_title= @user.username
     .col-md-4
 
-- if @posts.first.nil?
+- if @posts.empty?
   .row
     .col-md-4
     .col-md-4.image-container.box-container

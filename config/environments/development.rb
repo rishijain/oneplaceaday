@@ -41,10 +41,10 @@ Rails.application.configure do
   # Mail service
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address          => 'smtp.mandrillapp.com',
+    :address          => 'smtp.sendgrid.net',
     :port             => 587,
-    :user_name         => ENV['happyplace_user_name'],
-    :password         => ENV['happyplace_password'],
+    :user_name         => 'jainrishi15',
+    :password         => 'josh1234',
     :authentication   => :plain
   }
 end

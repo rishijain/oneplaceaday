@@ -7,9 +7,6 @@
 .row
   .col-md-1
   .col-md-10.image-container.box-container
-    = image_tag @post.photo.url
-    %br
-    %br
     - if post_is_editable?(@post.user, current_user)
       %p.title
         = link_to @post.title, edit_post_path(@post.id), title: 'Click to edit this post'
@@ -20,6 +17,7 @@
         = @post.title
         = get_like_button(@post, current_user)
         %span.glyphicon.glyphicon-eye-open.untitle= @post.views_count
+    = image_tag @post.photo.url
     .description
       = @post.description
     %p.info Visited on: #{@post.visited_on}

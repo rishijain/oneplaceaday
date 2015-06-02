@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def draft_posts
-    posts = current_user.published_posts
+    @posts = current_user.published_posts
     render 'index'
   end
 
