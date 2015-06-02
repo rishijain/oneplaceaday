@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order('views_count DESC , created_at DESC')
+    @posts = Post.published.order('views_count DESC , created_at DESC')
     Statistic.increment_counter(:count, Statistic.home_page_view_count.id)
   end
 
@@ -43,6 +43,11 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.comments.create(user_id: params[:comment][:user_id], thought: params[:comment][:thought])
     redirect_to post_path(post.id)
+  end
+
+  def draft_posts
+    posts = current_user.published_posts
+    render 'index'
   end
 
   private

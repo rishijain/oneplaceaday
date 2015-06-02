@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+
+  include AASM
+
   belongs_to :user
   has_many :comments
   has_many :likes
@@ -12,6 +15,20 @@ class Post < ActiveRecord::Base
 
   scope :all_except, -> (post_id) { where.not(id: post_id) }
   self.per_page = 3
+
+  aasm do
+    state :draft, initial: true
+    state :moderation
+    state :published
+
+    event :publish do
+      transitions from: [:draft, :moderation], to: :published
+    end
+
+    event :moderate do
+      transitions from: [:draft, :published], to: :moderation
+    end
+  end
 
   def description
     super && super.html_safe

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     member do
       post 'add_comment'
     end
+
+    collection do
+      get 'draft_posts'
+    end
   end
 
   resources :users do
