@@ -10,8 +10,12 @@ enableTinyMCE = ->
     browser_spellcheck: true
   }
 
-#$(document).on "ready page:load", ->
-#enableTinyMCE()
 
-#$(document).on "page:receive", ->
-#tinymce.remove()
+
+onEvents = ->
+  $('body').on 'click', '.btn-state', ->
+    $('#next_state').val $(this).data('next-state')
+    $('#state_change_form').submit()
+
+$ ->
+  onEvents()

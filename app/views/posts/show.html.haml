@@ -4,10 +4,17 @@
   %meta{property: 'og:image', content: "#{@post.photo.url}"}
   %meta{property: 'og:description', content: "#{sanitize(truncate(@post.description, length: 300, escape: false), attributes: %w(href))}"}
 
+= form_tag change_state_post_path(@post), remote: true, method: 'post', id: 'state_change_form' do
+  = hidden_field_tag 'next_state'
+
 .row
   .col-md-1
   .col-md-10.image-container.box-container
     - if post_is_editable?(@post.user, current_user)
+      %div.state_change_btns
+        = link_to 'Keep in Draft', '#', class: "btn btn-default btn-state #{state_active(@post.aasm_state, "draft")}", "data-next-state" => 'draft'
+        = link_to 'Send for moderation', '#', class: "btn btn-info btn-state #{state_active(@post.aasm_state, 'moderation')}", "data-next-state" => 'moderation'
+        = link_to 'Publish', '#', class: "btn btn-success btn-state #{state_active(@post.aasm_state, 'published')}", "data-next-state" => 'published'
       %p.title
         = link_to @post.title, edit_post_path(@post.id), title: 'Click to edit this post'
         %span.glyphicon.glyphicon-heart.untitle.like_count{class: class_for_link_unlike_based_on_count(@post)}= @post.likes_count
@@ -83,25 +90,3 @@
   $('#add_comment_link').click(function(){
     $('#new_comment').submit()
   });
-
-  stLight.options({ 
-    publisher: "fdbea845-8135-4aa2-8e80-2b90c45e6728",
-    doNotHash: false,
-    doNotCopy: false,
-    hashAddressBar: false
-  });
-  var postImageUrl = "#{@post.photo.url}"
-  var options = {
-    "publisher": "fdbea845-8135-4aa2-8e80-2b90c45e6728",
-    "position": "right",
-    "ad": { "visible": false, "openDelay": 5, "closeDelay": 0 },
-    "chicklets": { "items": ["facebook", "twitter", "googleplus", "email", "sharethis"]},
-    "chicklets_params": {
-      "facebook": { "st_image": postImageUrl },
-      "twitter": { "st_image": postImageUrl },
-      "googleplus": { "st_image": postImageUrl },
-      "email": { "st_image": postImageUrl },
-      "sharethis": { "st_image": postImageUrl }
-    }
-  };
-  var st_hover_widget = new sharethis.widgets.hoverbuttons(options);

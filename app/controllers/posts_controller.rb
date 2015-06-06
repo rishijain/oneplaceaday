@@ -46,13 +46,49 @@ class PostsController < ApplicationController
   end
 
   def draft_posts
+    @posts = current_user.draft_posts
+    render 'index'
+  end
+
+  def published_posts
     @posts = current_user.published_posts
     render 'index'
+  end
+
+  def moderated_posts
+    @posts = current_user.moderation_posts
+    render 'index'
+  end
+
+  def change_state
+    @post = Post.find params[:id]
+    if next_state_and_current_state_same?(params)
+      @message = "Post is already in #{@post.aasm_state} state."
+      @message_type = "info"
+    else
+      update_state(params)
+      @message = "Post is moved to #{@post.aasm_state} state."
+      @message_type = "success"
+    end
   end
 
   private
 
   def permit_params
     params.require(:post).permit(:id, :title, :description, :country, :place, :visited_on, :photo, :user_id)
+  end
+
+  def next_state_and_current_state_same?(params)
+    params[:next_state] == @post.aasm_state
+  end
+
+  def update_state(params)
+    if params[:next_state] == 'draft'
+      @post.draft!
+    elsif params[:next_state] == 'moderation'
+      @post.moderate!
+    elsif params[:next_state] == 'published'
+      @post.publish!
+    end
   end
 end

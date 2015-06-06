@@ -3,13 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find params[:id]
-    @posts = @user.my_posts
-    render 'posts/index'
-  end
-
-  def posts
-    @user = User.find params[:id]
-    @posts = @user.my_posts
+    @posts = @user.my_all_posts
     render 'posts/index'
   end
 

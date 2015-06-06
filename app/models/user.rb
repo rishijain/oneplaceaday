@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :likes
 
-  def my_posts
+  def my_all_posts
     Post.where(:user_id => self.id).order('created_at DESC')
   end
 
@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
   def moderation_posts
     posts.moderation
   end
+
   def self.from_omniauth(auth)
     user = self.where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.email = auth.info.email

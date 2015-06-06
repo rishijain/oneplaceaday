@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def user_profile_page? params
-    params[:controller] == 'users' and params[:action] == 'posts'
+    params[:controller] == 'users' and params[:action] == 'show'
   end
 
   def social_media_image(provider)

@@ -60,4 +60,8 @@ module PostsHelper
     s << post.photo.filename
     s.join('')
   end
+
+  def state_active(current_state, next_state)
+    return "active" if current_state ==  next_state
+  end
 end

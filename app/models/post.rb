@@ -21,6 +21,10 @@ class Post < ActiveRecord::Base
     state :moderation
     state :published
 
+    event :draft do
+      transitions from: [:published, :moderation], to: :draft
+    end
+
     event :publish do
       transitions from: [:draft, :moderation], to: :published
     end

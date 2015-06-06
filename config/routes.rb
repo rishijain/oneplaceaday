@@ -10,18 +10,17 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       post 'add_comment'
+      post 'change_state'
     end
 
     collection do
       get 'draft_posts'
+      get 'moderated_posts'
+      get 'published_posts'
     end
   end
 
-  resources :users do
-    member do
-      get 'posts'
-    end
-  end
+  resources :users
 
   get '/page/:page' => 'posts#index'
   get 'about' => 'home#about'
