@@ -17,5 +17,7 @@ onEvents = ->
     $('#next_state').val $(this).data('next-state')
     $('#state_change_form').submit()
 
+  $('.btn-state').tooltip()
+
 $ ->
   onEvents()

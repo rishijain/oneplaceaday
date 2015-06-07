@@ -12,9 +12,9 @@
   .col-md-10.image-container.box-container
     - if post_is_editable?(@post.user, current_user)
       %div.state_change_btns
-        = link_to 'Keep in Draft', '#', class: "btn btn-default btn-state #{state_active(@post.aasm_state, "draft")}", "data-next-state" => 'draft'
-        = link_to 'Send for moderation', '#', class: "btn btn-info btn-state #{state_active(@post.aasm_state, 'moderation')}", "data-next-state" => 'moderation'
-        = link_to 'Publish', '#', class: "btn btn-success btn-state #{state_active(@post.aasm_state, 'published')}", "data-next-state" => 'published'
+        = link_to 'Keep in Draft', '#', class: "btn btn-default btn-state #{state_active(@post.aasm_state, "draft")}", "data-next-state" => 'draft', 'data-toggle' => 'tooltip', title: 'The post will be saved in draft state i.e it will not be visible for others to see the post.'
+        = link_to 'Send for moderation', '#', class: "btn btn-info btn-state #{state_active(@post.aasm_state, 'moderation')}", "data-next-state" => 'moderation', 'data-toggle' => 'tooltip', title: 'The post will be saved in moderation state and our experts will review your post and get back to you. And also it will not be visible for others to see the post. You can change the state of the post to draft or publish any time.'
+        = link_to 'Publish', '#', class: "btn btn-success btn-state #{state_active(@post.aasm_state, 'published')}", "data-next-state" => 'published', 'data-toggle' => 'tooltip', title: 'The post will be saved in published state i.e it will be visible for all users to see and read this post.'
       %p.title
         = link_to @post.title, edit_post_path(@post.id), title: 'Click to edit this post'
         %span.glyphicon.glyphicon-heart.untitle.like_count{class: class_for_link_unlike_based_on_count(@post)}= @post.likes_count
