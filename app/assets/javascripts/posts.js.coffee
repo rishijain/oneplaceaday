@@ -10,14 +10,20 @@ enableTinyMCE = ->
     browser_spellcheck: true
   }
 
-
-
 onEvents = ->
   $('body').on 'click', '.btn-state', ->
-    $('#next_state').val $(this).data('next-state')
-    $('#state_change_form').submit()
 
-  $('.btn-state').tooltip()
+    if $('#state_change_form').length is 1
+      $('#next_state').val $(this).data('next-state')
+      $('#state_change_form').submit()
+    else if $('.edit_post').length is 1
+      $('#post_aasm_state').val $(this).data('next-state')
+      $('.edit_post').submit()
+    else if $('.new_post').length is 1
+      $('#post_aasm_state').val $(this).data('next-state')
+      $('.new_post').submit()
+
+  $('.btn').tooltip()
 
 $ ->
   onEvents()

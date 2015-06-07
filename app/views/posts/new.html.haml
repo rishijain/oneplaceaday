@@ -1,6 +1,8 @@
 .row
   .col-md-1
   .col-md-10.box-container
+    = render 'action_buttons'
+    %br
     = simple_form_for(@post) do |f|
       = render 'form', f: f
   .col-md-1

@@ -75,7 +75,7 @@ class PostsController < ApplicationController
   private
 
   def permit_params
-    params.require(:post).permit(:id, :title, :description, :country, :place, :visited_on, :photo, :user_id)
+    params.require(:post).permit(:id, :title, :description, :country, :place, :visited_on, :photo, :user_id, :aasm_state)
   end
 
   def next_state_and_current_state_same?(params)

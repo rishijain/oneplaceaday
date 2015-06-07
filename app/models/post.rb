@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 
-  validates :title, :description, :place, :country, :visited_on, :photo, presence: true
+  validates :title, :description, :place, :country, :visited_on, :photo, presence: true, if: Proc.new {|d| d.published?}
 
   geocoded_by :full_street_address
   after_validation :geocode, if: :full_street_address_changed?

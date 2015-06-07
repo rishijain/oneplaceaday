@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150602094015) do
     t.integer  "likes_count",                    default: 0
     t.integer  "views_count",                    default: 0
     t.text     "backup_description"
-    t.string   "aasm_state"
+    t.string   "aasm_state",                     default: "draft"
   end
 
   create_table "statistics", force: :cascade do |t|

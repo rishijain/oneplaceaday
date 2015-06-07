@@ -7,5 +7,4 @@
 = f.input :country, placeholder: 'ex: India', as: :string
 = f.input :visited_on, placeholder: 'ex: April, 2011'
 = f.hidden_field :user_id, value: current_user.id
-%br
-= f.button :submit
+= f.hidden_field :aasm_state, value: @post.aasm_state

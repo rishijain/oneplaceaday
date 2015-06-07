@@ -55,6 +55,7 @@ module PostsHelper
   end
 
   def custom_url(post)
+    return nil if post.photo.url.nil?
     s = post.photo.url.split(post.photo.filename)
     s << "w_323,h_214/"
     s << post.photo.filename
