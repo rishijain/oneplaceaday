@@ -20,11 +20,13 @@
         = link_to @post.title, edit_post_path(@post.id), title: 'Click to edit this post'
         %span.glyphicon.glyphicon-heart.untitle.like_count{class: class_for_link_unlike_based_on_count(@post)}= @post.likes_count
         %span.glyphicon.glyphicon-eye-open.untitle= @post.views_count
+        = social_share_button_tag(@post.title, :popup => "true", :url => post_url(@post), :image => @post.photo_url)
     - else
       %p.title
         = @post.title
         = get_like_button(@post, current_user)
         %span.glyphicon.glyphicon-eye-open.untitle= @post.views_count
+        = social_share_button_tag(@post.title, :popup => "true", :url => post_url(@post), :image => @post.photo_url)
     = image_tag @post.photo.url
     .description
       = @post.description
