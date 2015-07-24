@@ -17,6 +17,19 @@
             %span.sr-only (current)
         %li{:class => "#{set_active(params, 'add post')}"}
           %a{:href => new_post_path} Add Post
+      /search button at navbar - fix it    
+      %ul.nav.navbar-nav.navbar-left{:role => "search"}
+        .form-inline
+          .col-sm-10
+            %input.form-control{:placeholder => "Search", :type => "text"}/
+            %select.form-control
+              %option everywhere
+              %option author
+              %option places
+              %option title
+              %option description
+          %button.btn.btn-default{:type => "submit"} Submit
+      /end of search button
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li.dropdown
