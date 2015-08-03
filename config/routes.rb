@@ -24,6 +24,18 @@ Rails.application.routes.draw do
 
   get '/page/:page' => 'posts#index'
   get 'about' => 'home#about'
+  get 'search' => 'posts#index', as: :search
+  #sth connected with search should go here:
+  #get '/search/:query' => 'posts#index'
+
+  #!!!!this may work:# resources: :search, only [:index]
+  
+  # resources :posts do
+  #   collection do 
+  #     get :search, :action => 'search_post', :as => 'search_post'
+  #     get 'search/:query', :action => 'search', :as => 'search'
+  #   end
+  # end
 
   get '/likes/:post_id/:user_id/up_or_down' => 'likes#up_or_down', as: :like_unlike
   # Example of regular route:
