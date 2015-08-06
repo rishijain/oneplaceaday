@@ -27,19 +27,7 @@ class PostsController < ApplicationController
       render 'edit'
     end
   end
-# # search
-#   def search
-#     if query.present?
-#       Post.index
-#     else
-#       scoped
-#     end
-#   end
 
-#   def search
-#     Post.search params[:query]
-#   end
-  
   def index
     @posts = Post.all
     if params[:query].present?

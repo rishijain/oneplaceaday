@@ -70,4 +70,5 @@ class User < ActiveRecord::Base
     find_each { |record| record.update_pg_search_document }
   end
   # # #
+
 end

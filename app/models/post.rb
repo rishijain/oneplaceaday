@@ -5,20 +5,21 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   has_many :likes
+
   #search:
   pg_search_scope :search,
-    :against => [:title, :description, :country], 
+    :against => [:title, :description, :country],
     :associated_against => { :user => :username },
     :using => {
       :trigram => {
         :threshold => 0.05
       },
-     :tsearch => { 
-      :dictionary  => 'english' 
+     :tsearch => {
+      :dictionary  => 'english'
       }
     }
   #end of search
-  
+
   mount_uploader :photo, PhotoUploader
 
   validates :title, :description, :place, :country, :visited_on, :photo, presence: true, if: Proc.new {|d| d.published?}
@@ -28,7 +29,7 @@ class Post < ActiveRecord::Base
 
   scope :all_except, -> (post_id) { where.not(id: post_id) }
   self.per_page = 3
-  
+
   aasm do
     state :draft, initial: true
     state :moderation
@@ -61,9 +62,10 @@ class Post < ActiveRecord::Base
     result = place_changed? || country_changed?
   end
 
-  #rebuild 
+  #rebuild
   def self.rebuild_pg_search_documents
     find_each { |record| record.update_pg_search_document }
   end
   # # #
+
 end
