@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
   #search:
   pg_search_scope :search,
-    :against => [:title, :description, :country],
+    :against => [:title, :description, :place, :country],
     :associated_against => { :user => :username },
     :using => {
       :trigram => {
