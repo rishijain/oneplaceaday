@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include PgSearch
   extend FriendlyId
 
   friendly_id :username, use: :slugged
@@ -63,4 +64,10 @@ class User < ActiveRecord::Base
 
     return user
   end
+
+  #rebuild
+   def self.rebuild_pg_search_documents
+    find_each { |record| record.update_pg_search_document }
+  end
+  # # #
 end

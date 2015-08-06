@@ -27,9 +27,26 @@ class PostsController < ApplicationController
       render 'edit'
     end
   end
+# # search
+#   def search
+#     if query.present?
+#       Post.index
+#     else
+#       scoped
+#     end
+#   end
 
+#   def search
+#     Post.search params[:query]
+#   end
+  
   def index
-    @posts = Post.published.order('views_count DESC , created_at DESC')
+    @posts = Post.all
+    if params[:query].present?
+      @posts = Post.search(params[:query]).order('views_count DESC , created_at DESC')
+    else
+      @posts = Post.published.order('views_count DESC , created_at DESC')
+    end
     Statistic.increment_counter(:count, Statistic.home_page_view_count.id)
   end
 
