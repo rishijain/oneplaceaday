@@ -29,12 +29,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.published.order('views_count DESC, created_at DESC')
+    @posts = Post.published
     if params[:query].present?
       @posts = @posts.search(params[:query])
-    else
-      @posts = @posts
     end
+    @posts = @posts.order('views_count DESC, created_at DESC')
   end
 
   def show
