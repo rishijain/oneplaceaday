@@ -51,17 +51,17 @@ class PostsController < ApplicationController
   end
 
   def draft_posts
-    @posts = current_user.draft_posts
+    @posts = (current_user.role.name + "UserHelper").constantize.new(current_user).draft_posts
     render 'index'
   end
 
   def published_posts
-    @posts = current_user.published_posts
+    @posts = (current_user.role.name + "UserHelper").constantize.new(current_user).published_posts
     render 'index'
   end
 
   def moderated_posts
-    @posts = current_user.moderation_posts
+    @posts = (current_user.role.name + "UserHelper").constantize.new(current_user).moderated_posts
     render 'index'
   end
 
