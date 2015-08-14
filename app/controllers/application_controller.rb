@@ -4,9 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_filter :current_role
 
   protected
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << :username
+    end
+
+    def current_role
+      if user_signed_in?
+        @current_role = current_user.role
+      else
+        @current_role = nil
+      end
+      @current_role
     end
 end

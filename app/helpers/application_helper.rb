@@ -24,4 +24,9 @@ module ApplicationHelper
     return 'active' if params[:action] == 'about' and params[:controller] == 'home' and state == 'about'
     return 'active' if params[:action] == 'new' and params[:controller] == 'posts' and state == 'add post'
   end
+
+  def role_is_admin?
+    return true if @current_role.try(:name) == 'Admin'
+    false
+  end
 end

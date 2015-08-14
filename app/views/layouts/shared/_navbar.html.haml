@@ -33,14 +33,15 @@
             %ul.dropdown-menu{:role => "menu"}
               %li
                 %a{:href => edit_user_path(current_user.id)} My Profile
-              %li
-                %a{:href => user_path(current_user)} My Posts
+              - unless role_is_admin?
+                %li
+                  %a{:href => user_path(current_user)} My Posts
+                %li
+                  %a{:href => published_posts_posts_path} Published Posts
               %li
                 %a{:href => draft_posts_posts_path} Draft Posts
               %li
                 %a{:href => moderated_posts_posts_path} Moderated Posts
-              %li
-                %a{:href => published_posts_posts_path} Published Posts
               %li
                 = link_to "Sign out", destroy_user_session_path, method: :delete
         - else

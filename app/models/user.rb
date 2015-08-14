@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :likes
+  belongs_to :role
 
   def my_all_posts
     Post.where(user_id: self.id, aasm_state: 'published').order('created_at DESC')

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727114453) do
+ActiveRecord::Schema.define(version: 20150813185553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(version: 20150727114453) do
     t.string   "aasm_state",                     default: "draft"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "statistics", force: :cascade do |t|
     t.string   "page_type"
     t.integer  "count",      default: 0
@@ -97,6 +103,7 @@ ActiveRecord::Schema.define(version: 20150727114453) do
     t.string   "uid"
     t.string   "picture_url"
     t.string   "slug"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

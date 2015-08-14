@@ -11,3 +11,5 @@
 
 Statistic.create(page_type: 'home page')
 Statistic.create(page_type: 'about page')
+Role.create(name: 'Admin')
+Role.create(name: 'General')
