@@ -72,20 +72,21 @@
     .col-md-1
 %br
 
-.row
-  .col-md-1
-  .col-md-10.image-container.box-container
-    = simple_form_for(@post.comments.new, url: add_comment_post_path(@post)) do |c|
-      .col-md-1
-        = image_tag get_user_profile_picture(current_user), class: 'profile-pic img-circle'
-      .col-md-10.comment
-        %p.comment-text.txtStyle.tiny-text= username_for_user(current_user)
-        %br
-        = c.input :thought, as: :text, label: false
-        = c.hidden_field :user_id, value: value_of_user_id(current_user)
-        = link_to 'Add', '#', id: 'add_comment_link', class: 'btn'
-    %br
-  .col-md-1
+- if user_signed_in?
+  .row
+    .col-md-1
+    .col-md-10.image-container.box-container
+      = simple_form_for(@post.comments.new, url: add_comment_post_path(@post)) do |c|
+        .col-md-1
+          = image_tag get_user_profile_picture(current_user), class: 'profile-pic img-circle'
+        .col-md-10.comment
+          %p.comment-text.txtStyle.tiny-text= username_for_user(current_user)
+          %br
+          = c.input :thought, as: :text, label: false
+          = c.hidden_field :user_id, value: value_of_user_id(current_user)
+          = link_to 'Add', '#', id: 'add_comment_link', class: 'btn'
+      %br
+    .col-md-1
 
 :javascript
 
