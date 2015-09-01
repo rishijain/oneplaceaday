@@ -62,4 +62,4 @@ gem 'aasm'
 
 
 gem 'jquery-turbolinks'
-
+gem 'quiet_assets'
