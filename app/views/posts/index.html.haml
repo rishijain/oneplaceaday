@@ -2,9 +2,7 @@
   .row
     .col-md-4
     .col-md-4.txtCentered
-      - photo_url = @user.profile_photo.url
-      - photo_url = 'nouserimage.png' if photo_url.nil?
-      = image_tag photo_url, class: 'img-circle medium-image'
+      = image_tag get_user_profile_picture(@user), class: 'img-circle medium-image'
       %p.txtStyle.medium_title= @user.username
     .col-md-4
 
